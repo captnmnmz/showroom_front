@@ -1,25 +1,25 @@
 // Liste des erreurs que l'API peut renvoyer
 
 const list = {
-  noShowsError: {
+  noOffersError: {
     code: 500,
-    error: 'noShowsError',
-    error_description: 'La base ne contient pas de show'
+    error: 'noOffersError',
+    error_description: 'La base ne contient pas d\'offres'
   },
-  noShowError: {
+  noOfferError: {
     code: 500,
-    error: 'noShowError',
-    error_description: 'Ce show n\'existe pas'
+    error: 'noOfferError',
+    error_description: 'Cette offre n\'existe pas'
   },
-  noBookingsError: {
+  noBuysError: {
     code: 500,
-    error: 'noBookingsError',
-    error_description: 'La base ne contient pas de booking'
+    error: 'noBuysError',
+    error_description: 'La base ne contient pas d\'achat'
   },
-  noBookingError: {
+  noBuyError: {
     code: 500,
-    error: 'noBookingError',
-    error_description: 'Ce booking n\'existe pas'
+    error: 'noBuyError',
+    error_description: 'Cet achat n\'existe pas'
   },
 };
 
