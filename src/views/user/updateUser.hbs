@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <h1>Update show</h1>
+
+  <form action="/users/create/{{user.id}}" method="post">
+    <div class="form-group">
+      <label for="username">Username*</label>
+      <input value="{{user.username}}" class="form-control" type="text" id="username" name="username" placeholder="Username" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input value="{{user.email}}" class="form-control" type="email" id="email" name="email" placeholder="Email of the user" required>
+    </div>
+
+    <div class="form-group">
+      <label for="pass">Password*</label>
+      <input class="form-control" type="password" id="pass" name="pass" placeholder="Password of the user" required>
+    </div>
+
+    <!-- Specific syntax for image
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input value="{{user.img}}" class="form-control" type="text" id="image" name="image" placeholder="Ex: http://lien.vers-l-image.com/img.jpeg">
+    </div>
+    -->
+
+    <div class="form-group">
+      <label for="birthdate">Your birthdate</label>
+      <input value="{{user.birthdate}}" class="form-control" type="date" id="birthdate" name="birthdate">
+    </div>
+
+    <div class="form-group">
+      <label for="firstname">Firstname*</label>
+      <input value="{{user.firstname}}" class="form-control" type="text" id="firstname" name="firstname" placeholder="Firstname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Lastname*</label>
+      <input value="{{user.lastname}}" class="form-control" type="text" id="lastname" name="lastname" placeholder="Lastname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="fb">Facebook account</label>
+      <input value="{{user.fb}}" class="form-control" type="url" id="fb" name="fb" placeholder="Ex : http://facebook.com/my_profil">
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">
+        Update
+      </button>
+    </div>
+  </form>
+</html>

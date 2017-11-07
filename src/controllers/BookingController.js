@@ -64,7 +64,7 @@ export default {
   getBookings: (req, res) => {
     bookings()
     .then((data) => {
-      res.render('booking/bookings', { bookings: data });
+      res.render('offer/offers', { bookings: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
@@ -74,7 +74,7 @@ export default {
   getBooking: (req, res) => {
     booking(req.params.id)
     .then((data) => {
-      res.render('booking/booking', { booking: data });
+      res.render('offer/offer', { offer: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
