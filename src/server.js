@@ -66,33 +66,33 @@ server.post('/seeddb', SeedDbController.seedDb);
 // Routes pour les vues
 server.get('/', HomeController.getIndex);
 
-server.get('/shows', ShowController.getShows);
-server.get('/shows/id/:id', ShowController.getShow);
-server.get('/shows/create', ShowController.getCreateShow);
-server.post('/shows/create', ShowController.postCreateShow);
-server.get('/shows/update/:id', ShowController.getUpdateShow);
-server.post('/shows/update/:id', ShowController.postUpdateShow);
-server.get('/shows/delete/:id', ShowController.getDeleteShow);
+server.get('/users', ShowController.getUsers);
+server.get('/users/id/:id', ShowController.getUser);
+server.get('/users/create', ShowController.getCreateUser);
+server.post('/users/create', ShowController.postCreateUser);
+server.get('/users/update/:id', ShowController.getUpdateUser);
+server.post('/users/update/:id', ShowController.postUpdateUser);
+server.get('/users/delete/:id', ShowController.getDeleteUser);
 
-server.get('/bookings', BookingController.getBookings);
-server.get('/bookings/id/:id', BookingController.getBooking);
-server.get('/bookings/create', BookingController.getCreateBooking);
-server.post('/bookings/create', BookingController.postCreateBooking);
-server.get('/bookings/update/:id', BookingController.getUpdateBooking);
-server.post('/bookings/update/:id', BookingController.postUpdateBooking);
-server.get('/bookings/delete/:id', BookingController.getDeleteBooking);
+server.get('/offers', BookingController.getOffers);
+server.get('/offers/id/:id', BookingController.getOffer);
+server.get('/offers/create', BookingController.getCreateOffer);
+server.post('/offers/create', BookingController.postCreateOffer);
+server.get('/offers/update/:id', BookingController.getUpdateOffer);
+server.post('/offers/update/:id', BookingController.postUpdateOffer);
+server.get('/offers/delete/:id', BookingController.getDeleteOffer);
 
 // Routes pour les APIs
 server.get('/api/', HomeController.getIndexApi);
 
-server.get('/api/shows', ShowController.getShowsApi);
-server.get('/api/shows/id/:id', ShowController.getShowApi);
-server.post('/api/shows/create', ShowController.postCreateShowApi);
-server.post('/api/shows/update/:id', ShowController.postUpdateShowApi);
-server.post('/api/shows/delete/:id', ShowController.postDeleteShowApi);
+server.get('/api/users', ShowController.getUsersApi);
+server.get('/api/users/id/:id', ShowController.getUserApi);
+server.post('/api/users/create', ShowController.postCreateUserApi);
+server.post('/api/users/update/:id', ShowController.postUpdateUserApi);
+server.post('/api/users/delete/:id', ShowController.postDeleteUserApi);
 
-server.get('/api/bookings', BookingController.getBookingsApi);
-server.get('/api/bookings/id/:id', BookingController.getBookingApi);
-server.post('/api/bookings/create', BookingController.postCreateBookingApi);
-server.post('/api/bookings/update/:id', BookingController.postUpdateBookingApi);
-server.post('/api/bookings/delete/:id', BookingController.postDeleteBookingApi);
+server.get('/api/offers', BookingController.getOffersApi);
+server.get('/api/offers/id/:id', BookingController.getOfferApi);
+server.post('/api/offers/create', BookingController.postCreateOfferApi);
+server.post('/api/offers/update/:id', BookingController.postUpdateOfferApi);
+server.post('/api/offers/delete/:id', BookingController.postDeleteOfferApi);

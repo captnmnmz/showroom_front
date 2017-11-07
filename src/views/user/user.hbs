@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <h1>User</h1>
+
+  <div>
+    <div>
+      <img src="{{user.image}}" />
+    </div>
+    <div>Firstname : {{user.firstname}}</div>
+    <div>Lastname : {{user.lastname}}</div>
+    <div>username : {{user.name}}</div>
+    <div>email : {{user.email}}</div>
+    <div>password : {{user.password}}</div>
+    <div>Birthdate : {{user.birthdate}}</div>
+    <div>Facebook account : {{user.fb}}</div>
+
+  </div>
+
+  <div class="text-center">
+    <a class="btn btn-primary" href="/users/create" role="button">
+      Add a user
+    </a>
+    <a class="btn btn-secondary" href="/users/update/{{user.id}}" role="button">
+      Update
+    </a>
+    <a class="btn btn-danger" href="/users/delete/{{user.id}}" role="button">
+      Delete
+    </a>
+  </div>
+</html>

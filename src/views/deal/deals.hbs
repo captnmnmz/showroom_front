@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <h1>Deals</h1>
+
+  {{#list deals}}
+
+    <td>
+      <a class="btn btn-secondary btn-sm" href="/deals/id/{{id}}" role="button">
+        {{name}}
+      </a>
+    </td>
+    <td>
+      {{description}}
+    </td>
+    <td>
+      {{price}}
+    </td>
+    <td>
+      Period of validity :
+      {{begin}}-{{end}}
+    </td>
+    <td>
+      <a class="btn btn-outline-secondary btn-sm" href="/deals/update/{{id}}" role="button">
+        Update
+      </a>
+      <a class="btn btn-outline-danger btn-sm" href="/deals/delete/{{id}}" role="button">
+        Delete
+      </a>
+    </td>
+
+  {{/list}}
+
+  <div class="text-center">
+    <a class="btn btn-primary" href="/deals/create" role="button">
+      Add an deal
+    </a>
+  </div>
+</htlm>
