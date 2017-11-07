@@ -4,22 +4,12 @@ const list = {
   noOffersError: {
     code: 500,
     error: 'noOffersError',
-    error_description: 'La base ne contient pas d\'offres'
+    error_description: 'La base ne contient pas de deals'
   },
   noOfferError: {
     code: 500,
     error: 'noOfferError',
-    error_description: 'Cette offre n\'existe pas'
-  },
-  noBuysError: {
-    code: 500,
-    error: 'noBuysError',
-    error_description: 'La base ne contient pas d\'achat'
-  },
-  noBuyError: {
-    code: 500,
-    error: 'noBuyError',
-    error_description: 'Cet achat n\'existe pas'
+    error_description: 'Ce deal n\'existe pas'
   },
 };
 

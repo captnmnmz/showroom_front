@@ -3,7 +3,7 @@
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
 
-import OfferSeeds from "../helpers/OfferSeeds";
+import DealSeeds from "../helpers/DealSeeds";
 
 let Schema = new mongoose.Schema({
   name: { type: String },         // le nom de l'offre
@@ -17,36 +17,36 @@ let Schema = new mongoose.Schema({
   hidden: {type:String},         // Si l'offre est secrète ou non
 });
 
-let Model = mongoose.model('Show', Schema);
+let Model = mongoose.model('Deal', Schema);
 
 export default {
-  seedOffers: () => {
+  seedDeals: () => {
     let promises = [];
-    for (let offer of OfferSeeds){
-      promises[promises.legth] = Model.create(offer);
+    for (let deal of DealSeeds){
+      promises[promises.legth] = Model.create(deal);
     }
     return Promise.all(promises);
   },
 
-  getOffers: () => {
+  getDeals: () => {
     return Model.find({}).exec();
   },
 
-  getOffer: (_id) => {
+  getDeal: (_id) => {
     return Model.findOne({ _id }).exec();
   },
 
-  createOffer: (offer) => {
+  createDeal: (deal) => {
     return Model.create({
-      name: offer.name,
-      business: offer.business,
-      description: offer.description,
-      capacity: offer.capacity,
-      price: offer.price,
-      image: offer.image,
-      begin: offer.begin,
-      end: offer.end,
-      hidden: offer.hidden
+      name: deal.name,
+      business: deal.business,
+      description: deal.description,
+      capacity: deal.capacity,
+      price: deal.price,
+      image: deal.image,
+      begin: deal.begin,
+      end: deal.end,
+      hidden: deal.hidden
     });
   },
 

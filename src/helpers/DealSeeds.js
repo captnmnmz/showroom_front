@@ -16,7 +16,7 @@ export default [
     description: "Visite secrète, sur les traces du da vinci code",
     capacity: 50,
     price: 12,
-    image: "http://www.google.fr",
+    image: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/480px-Louvre_Museum_Wikimedia_Commons.jpg",
     begin: "2017-11-04",
     end: "2017-11-31",
     hidden: "True"
