@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <h1>Create deal</h1>
+
+  <form action="/deals/create" method="post">
+    <div class="form-group">
+      <label for="dealname">Name of the deal*</label>
+      <input class="form-control" type="text" id="dealname" name="dealname" placeholder="Name" required>
+    </div>
+
+    <!-- TODO Special syntax to uplaod a img
+
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input class="form-control" type="text" id="image" name="image" placeholder="Ex: http://lien.vers-l-image.com/img.jpeg">
+    </div>
+
+    -->
+    <div class="form-group">
+      <label for="description">Description of the deal</label>
+      <textarea name="description" id="description" rows="5" cols="40">Description...</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input class="form-control" type="number" id="price" name="price" placeholder="Price of the deal">
+    </div>
+
+    <div class="form-group">
+      <label for="begin">Begin date*</label>
+      <input class="form-control" type="date" id="begin" name="begin" placeholder="Begin date" required>
+    </div>
+
+    <div class="form-group">
+      <label for="end">End date*</label>
+      <input class="form-control" type="date" id="end" name="end" placeholder="End date" required>
+    </div>
+
+    <div class="form-group">
+      <p>
+      Do you want to hide this deal ? If not, it will be displayed on the map.  
+      <input class="form-control" type="radio" id="yes" name="hidden"/><label for="yes">Yes</label>
+      <input class="form-control" type="radio" id="no" name="hidden"/><label for="no">No</label>
+      </p>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">
+        Create
+      </button>
+    </div>
+
+  </form>
+</html>
