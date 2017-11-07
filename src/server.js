@@ -66,7 +66,6 @@ server.post('/seeddb', SeedDbController.seedDb);
 // Routes pour les vues
 server.get('/', HomeController.getIndex);
 
-<<<<<<< HEAD
 server.get('/deals', DealController.getDeals);
 server.get('/deals/id/:id', DealController.getDeal);
 server.get('/deals/create', DealController.getCreateDeal);
@@ -82,28 +81,18 @@ server.get('/deals/delete/:id', DealController.getDeleteDeal);
 // server.get('/bookings/update/:id', BookingController.getUpdateBooking);
 // server.post('/bookings/update/:id', BookingController.postUpdateBooking);
 // server.get('/bookings/delete/:id', BookingController.getDeleteBooking);
-=======
-server.get('/users', ShowController.getUsers);
-server.get('/users/id/:id', ShowController.getUser);
-server.get('/users/create', ShowController.getCreateUser);
-server.post('/users/create', ShowController.postCreateUser);
-server.get('/users/update/:id', ShowController.getUpdateUser);
-server.post('/users/update/:id', ShowController.postUpdateUser);
-server.get('/users/delete/:id', ShowController.getDeleteUser);
 
-server.get('/offers', BookingController.getOffers);
-server.get('/offers/id/:id', BookingController.getOffer);
-server.get('/offers/create', BookingController.getCreateOffer);
-server.post('/offers/create', BookingController.postCreateOffer);
-server.get('/offers/update/:id', BookingController.getUpdateOffer);
-server.post('/offers/update/:id', BookingController.postUpdateOffer);
-server.get('/offers/delete/:id', BookingController.getDeleteOffer);
->>>>>>> 1411474a562c44e278d0f8e8fc93d497454527ec
+// server.get('/users', ShowController.getUsers);
+// server.get('/users/id/:id', ShowController.getUser);
+// server.get('/users/create', ShowController.getCreateUser);
+// server.post('/users/create', ShowController.postCreateUser);
+// server.get('/users/update/:id', ShowController.getUpdateUser);
+// server.post('/users/update/:id', ShowController.postUpdateUser);
+// server.get('/users/delete/:id', ShowController.getDeleteUser);
 
 // Routes pour les APIs
 server.get('/api/', HomeController.getIndexApi);
 
-<<<<<<< HEAD
 server.get('/api/deals', DealController.getDealsApi);
 server.get('/api/deals/id/:id', DealController.getDealApi);
 server.post('/api/deals/create', DealController.postCreateDealApi);
@@ -115,16 +104,9 @@ server.post('/api/deals/delete/:id', DealController.postDeleteDealApi);
 // server.post('/api/bookings/create', BookingController.postCreateBookingApi);
 // server.post('/api/bookings/update/:id', BookingController.postUpdateBookingApi);
 // server.post('/api/bookings/delete/:id', BookingController.postDeleteBookingApi);
-=======
-server.get('/api/users', ShowController.getUsersApi);
-server.get('/api/users/id/:id', ShowController.getUserApi);
-server.post('/api/users/create', ShowController.postCreateUserApi);
-server.post('/api/users/update/:id', ShowController.postUpdateUserApi);
-server.post('/api/users/delete/:id', ShowController.postDeleteUserApi);
 
-server.get('/api/offers', BookingController.getOffersApi);
-server.get('/api/offers/id/:id', BookingController.getOfferApi);
-server.post('/api/offers/create', BookingController.postCreateOfferApi);
-server.post('/api/offers/update/:id', BookingController.postUpdateOfferApi);
-server.post('/api/offers/delete/:id', BookingController.postDeleteOfferApi);
->>>>>>> 1411474a562c44e278d0f8e8fc93d497454527ec
+// server.get('/api/users', ShowController.getUsersApi);
+// server.get('/api/users/id/:id', ShowController.getUserApi);
+// server.post('/api/users/create', ShowController.postCreateUserApi);
+// server.post('/api/users/update/:id', ShowController.postUpdateUserApi);
+// server.post('/api/users/delete/:id', ShowController.postDeleteUserApi);
