@@ -1,4 +1,4 @@
-// Model de la route '/shows'
+// Model de la route '/deals'
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
