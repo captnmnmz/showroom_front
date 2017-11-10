@@ -2,18 +2,18 @@
 import Errors from "../helpers/Errors";
 
 // Récupération du model
-import ShowModel from "../models/ShowModel";
+import DealModel from "../models/DealModel";
 //import BookingModel from "../models/BookingModel";
 
 export default {
   seedDb: (req, res) => {
     return Promise.all([
-      ShowModel.deleteShows(),
+      DealModel.deleteDeals(),
       //BookingModel.deleteBookings(),
     ])
     .then((data) => {
       return Promise.all([
-        ShowModel.seedShows(),
+        DealModel.seedDeals(),
       ]);
     })
     .then((data) => {
