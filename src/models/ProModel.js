@@ -3,7 +3,8 @@
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
 
-import DealSeeds from "../helpers/ProSeeds";
+import ProSeeds from "../helpers/ProSeeds";
+
 
 let Schema = new mongoose.Schema({
 	name : { type: String},      // le nom de l'offre
