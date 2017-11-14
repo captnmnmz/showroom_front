@@ -7,7 +7,7 @@ import DealSeeds from "../helpers/DealSeeds";
 
 let Schema = new mongoose.Schema({
   name: { type: String },         // le nom de l'offre
-  business: { type: String },        // le nom du magasin
+  proId: { type: String },        // le nom du magasin
   description: { type: String },  // la description
   capacity: { type: Number },     // la quantité de l'offre disponible
   price: { type: Number },        // le prix
@@ -19,11 +19,22 @@ let Schema = new mongoose.Schema({
 
 let Model = mongoose.model('Deal', Schema);
 
+//TODO add functionnality to use the ids to initialise the seed
 export default {
-  seedDeals: () => {
+  seedDeals: (Dico) => {
     let promises = [];
     for (let deal of DealSeeds){
-      promises[promises.legth] = Model.create(deal);
+      promises[promises.length] = Model.create({
+        name: deal.name,
+        proId: Dico[deal.business],
+        description: deal.description,
+        capacity: deal.capacity,
+        price: deal.price,
+        image: deal.image,
+        begin: deal.begin,
+        end: deal.end,
+        hidden: deal.hidden
+      });
     }
     return Promise.all(promises);
   },
