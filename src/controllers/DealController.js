@@ -20,11 +20,11 @@ const deals = () => {
     // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un tableau
     let response = [];
     for (let deal of data){
-      // On parcours data. pour chaque élément, on garde les champs name, business, description, price, image, begin and end
+      // On parcours data. pour chaque élément, on garde les champs name, proId, description, price, image, begin and end
       response[response.length] = {
         id: deal._id,
         name: deal.name,
-        business: deal.business,
+        proId: deal.proId,
         description: deal.description,
         price: deal.price,
         image: deal.image,
@@ -57,7 +57,7 @@ const deal = (_id) => {
     let response = {
       id: data._id,
       name: data.name,
-      business: data.business,
+      proId: data.proId,
       description: data.description,
       price: data.price,
       image: data.image,
@@ -119,7 +119,7 @@ export default {
   postCreateDeal: (req, res) => {
     let deal = {
       name: req.body.name,
-      business: req.body.business,
+      proId: req.body.proId,
       description: req.body.description,
       price: req.body.price,
       image: req.body.image,
@@ -152,7 +152,7 @@ export default {
   postUpdateDeal: (req, res) => {
     let deal = {
       name: req.body.name,
-      business: req.body.business,
+      proId: req.body.proId,
       description: req.body.description,
       price: req.body.price,
       image: req.body.image,
@@ -211,7 +211,7 @@ export default {
   postCreateDealApi: (req, res) => {
     let deal = {
       name: req.body.name,
-      business: req.body.business,
+      proId: req.body.proId,
       description: req.body.description,
       price: req.body.price,
       image: req.body.image,
@@ -232,7 +232,7 @@ export default {
   postUpdateDealApi: (req, res) => {
     let deal = {
       name: req.body.name,
-      business: req.body.business,
+      proId: req.body.proId,
       description: req.body.description,
       price: req.body.price,
       image: req.body.image,
