@@ -5,7 +5,7 @@ export default [
     description: "inédit très swag",
     capacity: 100,
     price: 45,
-    image: "https://goo.gl/images/CQjTHZ",
+    image: "https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg",
     begin: "2017-10-30",
     end: "2017-12-24",
     hidden: "False"
