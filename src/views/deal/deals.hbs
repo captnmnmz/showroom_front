@@ -2,9 +2,7 @@
 <html lang="fr">
   <h1>Deals</h1>
 
-  {{#list deals}}
-
-  <table class="table">
+<table class="table">
 
     <thead>
       <th>Name</th>
@@ -12,6 +10,8 @@
       <th>Price</th>
       <th>Period of validity</th>
     </thead>
+
+  {{#list deals}}
 
     <tr>
     <td>
@@ -38,8 +38,10 @@
       </a>
     </td>
   </tr>
-  </table>
+
   {{/list}}
+
+</table>
 
   <div class="text-center">
     <a class="btn btn-primary" href="/deals/create" role="button">

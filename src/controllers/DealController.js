@@ -55,15 +55,15 @@ const deal = (_id) => {
 
     // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un élement
     let response = {
-      id: deal._id,
-      name: deal.name,
-      business: deal.business,
-      description: deal.description,
-      price: deal.price,
-      image: deal.image,
-      begin: deal.begin,
-      end: deal.end,
-      hidden: deal.hidden
+      id: data._id,
+      name: data.name,
+      business: data.business,
+      description: data.description,
+      price: data.price,
+      image: data.image,
+      begin: data.begin,
+      end: data.end,
+      hidden: data.hidden
       //lat: deal.lat,
       //lng: deal.lng
     };
