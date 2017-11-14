@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 import DealSeeds from "../helpers/ProSeeds";
 
-Let Schema = new mongoose.Schema({
+let Schema = new mongoose.Schema({
 	name : { type: String},      // le nom de l'offre
 	lat : { type: String},
 	lng : {type : String},
