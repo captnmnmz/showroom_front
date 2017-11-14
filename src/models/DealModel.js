@@ -50,7 +50,7 @@ export default {
     });
   },
 
-  updateOffer: (_id, offer) => {
+  updateDeal: (_id, offer) => {
     return Model.findOneAndUpdate({ _id }, {
       name: offer.name,
       business: offer.business,
@@ -64,11 +64,11 @@ export default {
     }, {upsert: true}).exec();
   },
 
-  deleteOffers: () => {
+  deleteDeals: () => {
     return Model.remove({}).exec();
   },
 
-  deleteOffer: (_id) => {
+  deleteDeal: (_id) => {
     return Model.remove({ _id }).exec();
   },
 };
