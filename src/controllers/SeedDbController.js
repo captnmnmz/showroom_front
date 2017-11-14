@@ -24,7 +24,7 @@ export default {
     .then((data) => {
       let Dico = {};
 
-      for (let item of Data){
+      for (let item of data){
         Dico[item.name]=item._id;
       }
 
