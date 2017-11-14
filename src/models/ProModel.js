@@ -11,7 +11,7 @@ let Schema = new mongoose.Schema({
 	lng : {type : String},
 });
 
-Let Model = mongoose.model('Deal', Schema);
+let Model = mongoose.model('Deal', Schema);
 
 export default {
 	seedPros: () => {
