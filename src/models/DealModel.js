@@ -52,15 +52,15 @@ export default {
 
   updateDeal: (_id, offer) => {
     return Model.findOneAndUpdate({ _id }, {
-      name: offer.name,
-      business: offer.business,
-      description: offer.description,
-      capacity: offer.capacity,
-      price: offer.price,
-      image: offer.image,
-      begin: offer.begin,
-      end: offer.end,
-      hidden: offer.hidden
+      name: deal.name,
+      business: deal.business,
+      description: deal.description,
+      capacity: deal.capacity,
+      price: deal.price,
+      image: deal.image,
+      begin: deal.begin,
+      end: deal.end,
+      hidden: deal.hidden
     }, {upsert: true}).exec();
   },
 
