@@ -61,7 +61,7 @@ export default {
     });
   },
 
-  updateDeal: (_id, offer) => {
+  updateDeal: (_id, deal) => {
     return Model.findOneAndUpdate({ _id }, {
       name: deal.name,
       business: deal.business,

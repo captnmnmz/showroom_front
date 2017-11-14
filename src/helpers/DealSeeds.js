@@ -12,7 +12,7 @@ export default [
   },
   {
     name: "Visite secrete Louvre",
-    venue: "Louvre",
+    business: "Louvre",
     description: "Visite secrète, sur les traces du da vinci code",
     capacity: 50,
     price: 12,
