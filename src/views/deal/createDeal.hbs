@@ -4,8 +4,8 @@
 
   <form action="/deals/create" method="post">
     <div class="form-group">
-      <label for="dealname">Name of the deal*</label>
-      <input class="form-control" type="text" id="dealname" name="dealname" placeholder="Name" required>
+      <label for="name">Name of the deal*</label>
+      <input class="form-control" type="text" id="name" name="name" placeholder="Name" required/>
     </div>
 
     <!-- TODO Special syntax to uplaod a img
@@ -17,23 +17,23 @@
 
     -->
     <div class="form-group">
-      <label for="description">Description of the deal</label>
-      <textarea name="description" id="description" rows="5" cols="40">Description...</textarea>
+      <label for="description">Description of the deal</label><br/>
+      <textarea class="form-control" name="description" id="description" placeholder="Description" rows="5"></textarea>
     </div>
 
     <div class="form-group">
       <label for="price">Price</label>
-      <input class="form-control" type="number" id="price" name="price" placeholder="Price of the deal">
+      <input class="form-control" type="number" id="price" name="price" placeholder="Price of the deal"/>
     </div>
 
     <div class="form-group">
       <label for="begin">Begin date*</label>
-      <input class="form-control" type="date" id="begin" name="begin" placeholder="Begin date" required>
+      <input class="form-control" type="date" id="begin" name="begin" placeholder="Begin date" required/>
     </div>
 
     <div class="form-group">
       <label for="end">End date*</label>
-      <input class="form-control" type="date" id="end" name="end" placeholder="End date" required>
+      <input class="form-control" type="date" id="end" name="end" placeholder="End date" required/>
     </div>
 
     <div class="form-group">

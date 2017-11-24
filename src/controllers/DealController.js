@@ -4,6 +4,7 @@ import Errors from "../helpers/Errors";
 
 // Récupération du model
 import DealModel from "../models/DealModel";
+import ProModel from "../models/ProModel";
 
 const deals = () => {
   // On fait appel à la fonction getDeals du model
