@@ -18,8 +18,8 @@ Pour lancer l'application, vous avez besoin de vous connecter sur une base de do
 
 ### Windows
 ```bash
-setx DB_USERNAME hackx
-setx DB_PASSWORD adrien
+setx DB_USERNAME test-user
+setx DB_PASSWORD test-password
 setx NODE_ENV development
 npm run dev
 ```
