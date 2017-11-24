@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <h1>Update deal</h1>
+  <h1>Update deal : </h1>
+  <h2>{{deal.name}}</h2>
 
   <form action="/deals/update/{{deal.id}}" method="post">
     <div class="form-group">
       <label for="dealname">Name of the deal*</label>
-      <input value="{{deal.name}}" class="form-control" type="text" id="dealname" name="dealname" placeholder="Name" required>
+      <input value="{{deal.name}}" class="form-control" type="text" id="dealname" name="dealname" required/>
     </div>
 
     <div class="form-group">
       <label for="description">Description of the deal</label><br/>
-      <textarea value ="{{deal.description}}" name="description" id="description" rows="5" cols="40"></textarea>
+      <textarea class="form-control" name="description" id="description" rows="5">{{deal.description}}</textarea>
     </div>
 
+    <div class="form-group">
       <label for="price">Price</label>
-      <input value="{{deal.price}}" class="form-control" type="number" id="price" name="price" placeholder="Price of the deal">
+      <input value="{{deal.price}}" class="form-control" type="number" id="price" name="price"/>
     </div>
 
     <div class="form-group">
       <label for="begin">Begin date*</label>
-      <input value="{{deal.begin}}" class="form-control" type="date" id="begin" name="begin" placeholder="Begin date" required>
+      <input value="{{deal.begin}}" class="form-control" type="date" id="begin" name="begin" required/>
     </div>
 
     <div class="form-group">
       <label for="end">End date*</label>
-      <input value="{{deal.end}}" class="form-control" type="date" id="end" name="end" placeholder="End date" required>
+      <input class="form-control" type="date" id="end" name="end" value="{{deal.end}}" required/>
     </div>
 
     <div class="form-group">
