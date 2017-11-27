@@ -17,7 +17,7 @@ import HandlebarsConfig from "./helpers/HandlebarsConfig";
 import SeedDbController from "./controllers/SeedDbController";
 import HomeController from "./controllers/HomeController";
 import DealController from "./controllers/DealController";
-//import BookingController from "./controllers/BookingController";
+import ProController from "./controllers/ProController";
 
 // Configuration du serveur
 const viewsPath = __dirname + '/views/';
@@ -74,13 +74,13 @@ server.get('/deals/update/:id', DealController.getUpdateDeal);
 server.post('/deals/update/:id', DealController.postUpdateDeal);
 server.get('/deals/delete/:id', DealController.getDeleteDeal);
 
-// server.get('/bookings', BookingController.getBookings);
-// server.get('/bookings/id/:id', BookingController.getBooking);
-// server.get('/bookings/create', BookingController.getCreateBooking);
-// server.post('/bookings/create', BookingController.postCreateBooking);
-// server.get('/bookings/update/:id', BookingController.getUpdateBooking);
-// server.post('/bookings/update/:id', BookingController.postUpdateBooking);
-// server.get('/bookings/delete/:id', BookingController.getDeleteBooking);
+server.get('/pros', ProController.getPros);
+server.get('/pros/id/:id', ProController.getPro);
+server.get('/pros/create', ProController.getCreatePro);
+server.post('/pros/create', ProController.postCreatePro);
+server.get('/pros/update/:id', ProController.getUpdatePro);
+server.post('/pros/update/:id', ProController.postUpdatePro);
+server.get('/pros/delete/:id', ProController.getDeletePro);
 
 // server.get('/users', ShowController.getUsers);
 // server.get('/users/id/:id', ShowController.getUser);
@@ -99,11 +99,11 @@ server.post('/api/deals/create', DealController.postCreateDealApi);
 server.post('/api/deals/update/:id', DealController.postUpdateDealApi);
 server.post('/api/deals/delete/:id', DealController.postDeleteDealApi);
 
-// server.get('/api/bookings', BookingController.getBookingsApi);
-// server.get('/api/bookings/id/:id', BookingController.getBookingApi);
-// server.post('/api/bookings/create', BookingController.postCreateBookingApi);
-// server.post('/api/bookings/update/:id', BookingController.postUpdateBookingApi);
-// server.post('/api/bookings/delete/:id', BookingController.postDeleteBookingApi);
+server.get('/api/pros', ProController.getProsApi);
+server.get('/api/pros/id/:id', ProController.getProApi);
+server.post('/api/pros/create', ProController.postCreateProApi);
+server.post('/api/pros/update/:id', ProController.postUpdateProApi);
+server.post('/api/pros/delete/:id', ProController.postDeleteProApi);
 
 // server.get('/api/users', ShowController.getUsersApi);
 // server.get('/api/users/id/:id', ShowController.getUserApi);
