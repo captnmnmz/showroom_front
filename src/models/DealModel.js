@@ -7,7 +7,7 @@ import DealSeeds from "../helpers/DealSeeds";
 
 let Schema = new mongoose.Schema({
   name: { type: String },         // le nom de l'offre
-  proId: { type: String },        // le nom du magasin
+  proId: { type: String },        // l'ID du magasin
   description: { type: String },  // la description
   capacity: { type: Number },     // la quantité de l'offre disponible
   price: { type: Number },        // le prix
@@ -50,7 +50,7 @@ export default {
   createDeal: (deal) => {
     return Model.create({
       name: deal.name,
-      business: deal.business,
+      proId: deal.proId,
       description: deal.description,
       capacity: deal.capacity,
       price: deal.price,
@@ -64,7 +64,7 @@ export default {
   updateDeal: (_id, deal) => {
     return Model.findOneAndUpdate({ _id }, {
       name: deal.name,
-      business: deal.business,
+      business: deal.proId,
       description: deal.description,
       capacity: deal.capacity,
       price: deal.price,
