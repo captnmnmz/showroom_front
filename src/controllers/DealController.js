@@ -22,24 +22,32 @@ const deals = () => {
     let response = [];
     for (let deal of data){
       // On parcours data. pour chaque élément, on garde les champs name, proId, description, price, image, begin and end
-      response[response.length] = {
-        id: deal._id,
-        name: deal.name,
-        proId: deal.proId,
-        business: ProModel.getPro(deal.proId).name,
-        description: deal.description,
-        price: deal.price,
-        image: deal.image,
-        begin: deal.begin,
-        end: deal.end,
-        hidden: deal.hidden
-        // lat: deal.lat,
-        // lng: deal.lng
-      }
+      return ProModel.getPro(deal.proId)
+      .then((pro) => {
+        if (pro === null) {
+          // Si data est vide, nous renvoyons l'erreur 'noDealsError'
+          throw new Error('ProUnknownError');
+        }
+
+        response[response.length] = {
+          id: deal._id,
+          name: deal.name,
+          proId: deal.proId,
+          business: pro.name,
+          description: deal.description,
+          price: deal.price,
+          image: deal.image,
+          begin: deal.begin,
+          end: deal.end,
+          hidden: deal.hidden,
+          lat: pro.lat,
+          lng: pro.lng
+        }
+      });
     }
 
     // Avant d'envoyer la réponse on la tri par ordre alphabétique croissant sur le champs name
-    return _.sortBy(response, 'name');
+    return _.sortBy(response, 'begin');
   });
 }
 
@@ -55,22 +63,26 @@ const deal = (_id) => {
       throw new Error('noDealError');
     }
 
+
+    return ProModel.getPro(data.proId)
+    .then((data_pro) => {
     // On prépare ici la réponse que va renvoyer l'api, il s'agit d'un élement
-    let response = {
-      id: data._id,
-      name: data.name,
-      proId: data.proId,
-      business: ProModel.getPro(data.proId).name,
-      description: data.description,
-      price: data.price,
-      image: data.image,
-      begin: data.begin,
-      end: data.end,
-      hidden: data.hidden
-      //lat: deal.lat,
-      //lng: deal.lng
-    };
-    return response;
+      let response = {
+        id: data._id,
+        name: data.name,
+        proId: data.proId,
+        business: data_pro.name,
+        description: data.description,
+        price: data.price,
+        image: data.image,
+        begin: data.begin,
+        end: data.end,
+        hidden: data.hidden,
+        lat: data_pro.lat,
+        lng: data_pro.lng
+      };
+      return response;
+    });
   });
 }
 
