@@ -26,14 +26,15 @@ const deals = () => {
         id: deal._id,
         name: deal.name,
         proId: deal.proId,
+        business: ProModel.getPro(deal.proId).name,
         description: deal.description,
         price: deal.price,
         image: deal.image,
         begin: deal.begin,
         end: deal.end,
         hidden: deal.hidden
-        //lat: deal.lat,
-        //lng: deal.lng
+        // lat: deal.lat,
+        // lng: deal.lng
       }
     }
 
@@ -59,6 +60,7 @@ const deal = (_id) => {
       id: data._id,
       name: data.name,
       proId: data.proId,
+      business: ProModel.getPro(data.proId).name,
       description: data.description,
       price: data.price,
       image: data.image,
@@ -127,8 +129,6 @@ export default {
       begin: req.body.begin,
       end: req.body.end,
       hidden: req.body.hidden
-      //lat: req.body.lat,
-      //lng: req.body.lng
     };
 
     createDeal(deal)
@@ -160,8 +160,6 @@ export default {
       begin: req.body.begin,
       end: req.body.end,
       hidden: req.body.hidden
-      //lat: req.body.lat,
-      //lng: req.body.lng
     };
 
     updateDeal(req.params.id, deal)

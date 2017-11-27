@@ -6,9 +6,11 @@
 
     <thead>
       <th>Name</th>
-      <th>Description</th>
+      <th>Pros</th>
       <th>Price</th>
       <th>Period of validity</th>
+      <th>Surprise</th>
+      <th>Actions</th>
     </thead>
 
   {{#list deals}}
@@ -20,7 +22,9 @@
       </a>
     </td>
     <td>
-      {{proId}}
+      <a class="btn btn-secondary btn-sm" href="/pro/id/{{proId}}" role="button">
+        {{business}}
+      </a>
     </td>
     <td>
       {{price}}
@@ -28,6 +32,9 @@
     <td>
       Begin: {{begin}}<br/>
       End: {{end}}
+    </td>
+    <td>
+      {{hidden}}
     </td>
     <td>
       <a class="btn btn-outline-secondary btn-sm" href="/deals/update/{{id}}" role="button">

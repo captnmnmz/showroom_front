@@ -3,152 +3,155 @@ import _ from "lodash";
 import Errors from "../helpers/Errors";
 
 // Récupération du model
-import BookingModel from "../models/BookingModel";
-import ShowModel from "../models/ShowModel";
+import DealModel from "../models/DealModel";
+import ProModel from "../models/ProModel";
 
-const bookings = () => {
-  return BookingModel.getBookings()
+const pros = () => {
+  return ProModel.getPros()
   .then((data) => {
     if (data === null) {
-      throw new Error('noBookingsError');
+      throw new Error('noProsError');
     }
 
     let response = [];
-    for (let booking of data){
+    for (let pro of data){
       response[response.length] = {
-        id: booking._id,
-        username: booking.username,
-        showId: booking.showId,
-        seats: booking.seats,
-        createdAt: booking.createdAt,
-        updatedAt: booking.updatedAt,
+        id: pro._id,
+        name: pro.name,
+        lat: pro.lat,
+        lng: pro.lng,
       }
     }
-    return _.sortBy(response, 'username');
+    return _.sortBy(response, 'name');
   });
 }
 
-const booking = (_id) => {
-  return BookingModel.getBooking(_id)
+const pro = (_id) => {
+  return ProModel.getPro(_id)
   .then((data) => {
     if (data === null) {
-      throw new Error('noBookingError');
+      throw new Error('noProError');
     }
 
     let response = {
       id: data._id,
-      username: data.username,
-      showId: data.showId,
-      seats: data.seats,
-      createdAt: data.createdAt,
-      updatedAt: data.updatedAt,
+      name: data.name,
+      lat: data.lat,
+      lng: data.lng,
     };
     return response;
   });
 }
 
-const createBooking = (booking) => {
-  return BookingModel.createBooking(booking);
+const createPro = (pro) => {
+  return ProModel.createPro(pro);
 }
 
-const updateBooking = (id, booking) => {
-  return BookingModel.updateBooking(id, booking);
+const updatePro = (id, pro) => {
+  return ProModel.updatePro(id, pro);
 }
 
-const deleteBooking = (id) => {
-  return BookingModel.deleteBooking(id);
+const deletePro = (id) => {
+  return ProModel.deletePro(id);
 }
 
 export default {
   // Controller des views
-  getBookings: (req, res) => {
-    bookings()
+  getPros: (req, res) => {
+    pros()
     .then((data) => {
-      res.render('offer/offers', { bookings: data });
+      // data contient une liste de pros
+      res.render('pro/pros', { pros: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
   },
 
-  getBooking: (req, res) => {
-    booking(req.params.id)
+  getPro: (req, res) => {
+    pro(req.params.id)
     .then((data) => {
-      res.render('offer/offer', { offer: data });
+      res.render('pro/pro', { pro: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
   },
 
-  getCreateBooking: (req, res) => {
-    ShowModel.getShows()
-    .then((data) => {
-      res.render('booking/createBooking', { shows: data });
-    }, (err) => {
-      console.log(err);
-      res.status(Errors(err).code).send(Errors(err));
-    });
+  getCreatePro: (req, res) => {
+    res.render('pro/createPro');
   },
 
-  postCreateBooking: (req, res) => {
-    let booking = {
-      username: req.body.username,
-      showId: req.body.showId,
-      seats: req.body.seats,
+  postCreatePro: (req, res) => {
+    let pro = {
+      name: req.body.name,
+      lat: req.body.lat,
+      lng: req.body.lng,
     };
 
-    createBooking(booking)
+    createPro(pro)
     .then((data) => {
-      res.redirect('/bookings');
+      res.redirect('/pros');
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
   },
 
-  getUpdateBooking: (req, res) => {
-    Promise.all([
-      booking(req.params.id),
-      ShowModel.getShows(),
-    ])
+  getUpdatePro: (req, res) => {
+    pro(req.params.id)
     .then((data) => {
-      res.render('booking/updateBooking', { booking: data[0], shows: data[1] });
+      res.render('pro/updatePro', { pro: data });
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
   },
 
-  postUpdateBooking: (req, res) => {
-    let booking = {
-      username: req.body.username,
-      showId: req.body.showId,
-      seats: req.body.seats,
+  postUpdatePro: (req, res) => {
+    let pro = {
+      name: req.body.name,
+      lat: req.body.lat,
+      lng: req.body.lng,
     };
 
-    updateBooking(req.params.id, booking)
+    updatePro(req.params.id, pro)
     .then((data) => {
-      res.redirect('/bookings');
+      res.redirect('/pros');
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
   },
 
-  getDeleteBooking: (req, res) => {
-    deleteBooking(req.params.id)
+  getDeletePro: (req, res) => {
+    deletePro(req.params.id)
     .then((data) => {
-      res.redirect('/bookings');
+      res.redirect('/pros');
     }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
     });
   },
+
+  // ************ API FROM THERE ************ //
 
   // Controller des Apis
-  getBookingsApi: (req, res) => {
-    bookings()
+  getProsApi: (req, res) => {
+    pros()
+    .then((data) => {
+      // data contient maintenant la valeur retournée par la fonction _.sortBy
+      // Si les opérations précédentes se sont bien passées, l'api renvoie une liste de pros
+      res.send(data);
+    }, (err) => {
+      // Si une erreur a été renvoyée avec la fonctions throw new Error(), nous atterrissons ici
+      console.log(err);
+      res.status(Errors(err).code).send(Errors(err));
+    });
+  },
+
+  getProApi: (req, res) => {
+    pro(req.params.id)
     .then((data) => {
       res.send(data);
     }, (err) => {
@@ -157,24 +160,14 @@ export default {
     });
   },
 
-  getBookingApi: (req, res) => {
-    booking(req.params.id)
-    .then((data) => {
-      res.send(data);
-    }, (err) => {
-      console.log(err);
-      res.status(Errors(err).code).send(Errors(err));
-    });
-  },
-
-  postCreateBookingApi: (req, res) => {
-    let booking = {
-      username: req.body.username,
-      showId: req.body.showId,
-      seats: req.body.seats,
+  postCreateProApi: (req, res) => {
+    let pro = {
+      name: req.body.name,
+      lat: req.body.lat,
+      lng: req.body.lng,
     };
 
-    createBooking(booking)
+    createPro(pro)
     .then((data) => {
       res.send('ok');
     }, (err) => {
@@ -183,14 +176,14 @@ export default {
     });
   },
 
-  postUpdateBookingApi: (req, res) => {
-    let booking = {
-      username: req.body.username,
-      showId: req.body.showId,
-      seats: req.body.seats,
+  postUpdateProApi: (req, res) => {
+    let pro = {
+      name: req.body.name,
+      lat: req.body.lat,
+      lng: req.body.lng,
     };
 
-    updateBooking(req.params.id, booking)
+    updatePro(req.params.id, pro)
     .then((data) => {
       res.send('ok');
     }, (err) => {
@@ -199,8 +192,8 @@ export default {
     });
   },
 
-  postDeleteBookingApi: (req, res) => {
-    deleteBooking(req.params.id)
+  postDeleteProApi: (req, res) => {
+    deletePro(req.params.id)
     .then((data) => {
       res.send('ok');
     }, (err) => {

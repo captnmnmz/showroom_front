@@ -3,8 +3,8 @@ import _ from "lodash";
 import Errors from "../helpers/Errors";
 
 // Récupération du model
-import BookingModel from "../models/BookingModel";
-import ShowModel from "../models/ShowModel";
+import ProModel from "../models/ProModel";
+import DealModel from "../models/DealModel";
 
 const bookings = () => {
   return BookingModel.getBookings()
