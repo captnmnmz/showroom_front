@@ -28,7 +28,7 @@ const deals = () => {
         hidden: deal.hidden,
       }
     }
-    return _.sortBy(response, 'name');
+    return _.sortBy(response, 'end');
   });
 }
 

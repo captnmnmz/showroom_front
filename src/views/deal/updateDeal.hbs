@@ -7,19 +7,19 @@
 
     <div class="form-group">
       <label for="name">Name of the deal*</label>
-      <input class="form-control" type="text" id="name" name="name" value="{{deal.name}}" required/>
+      <input value="{{deal.name}}" class="form-control" type="text" id="name" name="name" placeholder="Name of the deal" required/>
     </div>
 
     <div class="form-group">
       <label for="image">Lien vers l'image</label>
-      <input class="form-control" type="text" id="image" name="image" value="{{deal.image}}">
+      <input value="{{deal.image}}" class="form-control" type="text" id="image" name="image" placeholder="Link of the image">
     </div>
 
     <div class="form-group">
     <label for="proId">Pro*</label>
-    <select class="form-control" id="proId" name="proId" value="{{deal.image}}" required>
+    <select class="form-control" id="proId" name="proId" required>
       {{#list pros}}
-      <option value={{id}}>{{name}}</option>
+      <option value="{{id}}" {{selected ../deal.proId id}}>{{name}}</option>
       {{/list}}
     </select>
   </div>
@@ -31,12 +31,12 @@
 
     <div class="form-group">
       <label for="price">Price</label>
-      <input class="form-control" type="number" id="price" name="price" value={{deal.price}}/>
+      <input class="form-control" type="number" id="price" name="price" value="{{deal.price}}" placeholder="Price of the deal" />
     </div>
 
     <div class="form-group">
       <label for="capacity">Capacity</label>
-      <input class="form-control" type="number" id="capacity" name="capacity" placeholder="Capacity"/>
+      <input class="form-control" type="number" id="capacity" name="capacity" value="{{deal.capacity}}" placeholder="Capacity" />
     </div>
 
     <div class="form-group">
@@ -52,8 +52,8 @@
     <div class="form-group">
       <label for="hidden">Do you want to hide this deal ? If not, it will be displayed on the map.</label>
       <select class="form-control" id="hidden" name="hidden" value={{deal.hidden}} required>
-        <option value=True>Yes</option>
-        <option value=False>No</option>
+        <option value="False">No</option>
+        <option value="True">Yes</option>
       </select>
     </div>
 
