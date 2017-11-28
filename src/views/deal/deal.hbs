@@ -3,31 +3,45 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <h1> {{deal.name}} </h1>
-
-  <h4> {{pro.name}} </h4>
-  <h4> {{pro.lat}} </h4>
-  <h4> {{pro.lng}} </h4>
-
-  <p> <br/><br/>
-  <img src="{{deal.image}}"/><br/>
+  <p> <img src="{{qr.qrcode}}" style="float:right;"/>
+    <a class="btn btn-outline-secondary btn-sm" href="/deals/update/{{id}}" role="button">
+        Update this deal
+      </a>
   </p>
-
-  <div>
-    <p><img src="{{qr.qrcode}}"/></p>
-  </div>
-
+  <h2> {{pro.name}} </h2>
+  <h4> COORDINATES: {{pro.lat}} , {{pro.lng}} </h4>
+  <p>{{deal.description}}<br/><br/>
+    <a target="_blank" class="btn btn-primary btn-sm" href="{{qr.qrcode}}" role="button">
+        GENERATE QR CODE
+      </a>
+  </p>
 
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-half">
       <div class="w3-container w3-red w3-padding-16">
         <h6>Validity Date</h6>
-        <h4> {{deal.begin}} - {{deal.end}}</h4>
+        <h4> From {{deal.begin}} to {{deal.end}}</h4>
       </div>
     </div>
     <div class="w3-half">
       <div class="w3-container w3-red w3-padding-16">
         <h6>Price</h6>
-        <h4>€ {{deal.price}}</h4>
+        <h4>{{deal.price}} €</h4>
+      </div>
+    </div>
+    <div class="w3-half">
+      <div class="w3-container w3-red w3-padding-16">
+        <h6>Capacity</h6>
+        <h4> Limited to: {{deal.capacity}}</h4>
+      </div>
+    </div>
+    <div class="w3-half">
+      <div class="w3-container w3-red w3-padding-16">
+        <h6>Surprise?</h6>
+        <h4>{{deal.hidden}}</h4>
       </div>
     </div>
   </div>
+  <p> <br/>
+  <img src="{{deal.image}}" style="display:block; margin-left: auto; margin-right: auto;"/><br/>
+  </p>

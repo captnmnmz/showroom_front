@@ -105,30 +105,16 @@ export default {
   },
 
   getDeal: (req, res) => {
-    // Promise.all([
-    //   deal(req.params.id),
-    //   pros(req.params.id),
-    //   // dealproname(req.params.id),
-    // ])
-    // .then((data) => {
-    //   console.log(data);
-    //   res.render('deal/deal', { deal: data[0], qr: data[1] });
-    //   // console.log(data[0]);
-    //   // console.log(data[1]);
-    //   // console.log(data[2]);
-    //   // res.render('deal/deal', { deal: data[0], qr: data[1], pro: data[2] });
-    //   console.log('OK');
-    // }, (err) => {
-    //   console.log(err);
-    //   res.status(Errors(err).code).send(Errors(err));
-    // });
-    deal(req.params.id)
+    Promise.all([
+      deal(req.params.id),
+      dealqr(req.params.id),
+    ])
     .then((data1) => {
-      console.log(data1.proId);
-      pros(data1.proId)
+      console.log(data1[0].proId);
+      pros(data1[0].proId)
       .then((data2) => {
         console.log(data2.name);
-        res.render('deal/deal', { deal: data1, pro: data2 });
+        res.render('deal/deal', { deal: data1[0], qr: data1[1], pro: data2 });
       }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
