@@ -21,12 +21,12 @@ let Model = mongoose.model('Deal', Schema);
 
 //TODO add functionnality to use the ids to initialise the seed
 export default {
-  seedDeals: (Dico) => {
+  seedDeals: () => {
     let promises = [];
     for (let deal of DealSeeds){
       promises[promises.length] = Model.create({
         name: deal.name,
-        proId: Dico[deal.business],
+        proId: deal.proId,
         description: deal.description,
         capacity: deal.capacity,
         price: deal.price,
@@ -64,7 +64,7 @@ export default {
   updateDeal: (_id, deal) => {
     return Model.findOneAndUpdate({ _id }, {
       name: deal.name,
-      business: deal.proId,
+      proId: deal.proId,
       description: deal.description,
       capacity: deal.capacity,
       price: deal.price,

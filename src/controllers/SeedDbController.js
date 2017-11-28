@@ -16,21 +16,16 @@ export default {
       //BookingModel.deleteBookings(),
     ])
     .then((data) => {
-      return ProModel.seedPros();
+      return Promise.all([
+        ProModel.seedPros(),
+      ]);
     })
     .then((data) => {
-      return ProModel.getPros();
+      Promise.all([
+        DealModel.seedDeals(),
+      ]);
     })
-    .then((data) => {
-      let Dico = {};
-
-      for (let item of data){
-        Dico[item.name]=item._id;
-      }
-
-      return DealModel.seedDeals(Dico);
-
-    })
+    
     .then((data) => {
       res.send('ok');
     }, (err) => {

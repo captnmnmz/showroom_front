@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Pros</th>
       <th>Price</th>
+      <th>Capacity</th>
       <th>Period of validity</th>
       <th>Surprise</th>
       <th>Actions</th>
@@ -22,12 +23,15 @@
       </a>
     </td>
     <td>
-      <a class="btn btn-secondary btn-sm" href="/pro/id/{{proId}}" role="button">
-        {{business}}
+      <a class="btn btn-secondary btn-sm" href="/pros/id/{{proId}}" role="button">
+        {{proId}}
       </a>
     </td>
     <td>
       {{price}} €
+    </td>
+    <td>
+      {{capacity}}
     </td>
     <td>
       Begin: {{begin}}<br/>
