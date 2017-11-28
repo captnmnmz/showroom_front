@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <h1> {{deal.name}} </h1>
 
-  <!-- Image of the deal -->
-  <img src="{{deal.image}}" />
+  <h4> {{pro.name}} </h4>
+  <h4> {{pro.lat}} </h4>
+  <h4> {{pro.lng}} </h4>
 
-  <!-- Need to request the database in order to get the name of the pro-->
-  <h4> {{deal.idpro}}</h4>
+  <p> <br/><br/>
+  <img src="{{deal.image}}"/><br/>
+  </p>
 
-  <p> {{deal.description}} </p>
+  <div>
+    <p><img src="{{qr.qrcode}}"/></p>
+  </div>
+
 
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-half">
@@ -28,5 +31,3 @@
       </div>
     </div>
   </div>
-
-</html>

@@ -74,6 +74,7 @@ server.get('/deals/update/:id', DealController.getUpdateDeal);
 server.post('/deals/update/:id', DealController.postUpdateDeal);
 server.get('/deals/delete/:id', DealController.getDeleteDeal);
 
+
 server.get('/pros', ProController.getPros);
 server.get('/pros/id/:id', ProController.getPro);
 server.get('/pros/create', ProController.getCreatePro);
@@ -81,14 +82,6 @@ server.post('/pros/create', ProController.postCreatePro);
 server.get('/pros/update/:id', ProController.getUpdatePro);
 server.post('/pros/update/:id', ProController.postUpdatePro);
 server.get('/pros/delete/:id', ProController.getDeletePro);
-
-// server.get('/users', ShowController.getUsers);
-// server.get('/users/id/:id', ShowController.getUser);
-// server.get('/users/create', ShowController.getCreateUser);
-// server.post('/users/create', ShowController.postCreateUser);
-// server.get('/users/update/:id', ShowController.getUpdateUser);
-// server.post('/users/update/:id', ShowController.postUpdateUser);
-// server.get('/users/delete/:id', ShowController.getDeleteUser);
 
 // Routes pour les APIs
 server.get('/api/', HomeController.getIndexApi);
@@ -104,9 +97,3 @@ server.get('/api/pros/id/:id', ProController.getProApi);
 server.post('/api/pros/create', ProController.postCreateProApi);
 server.post('/api/pros/update/:id', ProController.postUpdateProApi);
 server.post('/api/pros/delete/:id', ProController.postDeleteProApi);
-
-// server.get('/api/users', ShowController.getUsersApi);
-// server.get('/api/users/id/:id', ShowController.getUserApi);
-// server.post('/api/users/create', ShowController.postCreateUserApi);
-// server.post('/api/users/update/:id', ShowController.postUpdateUserApi);
-// server.post('/api/users/delete/:id', ShowController.postDeleteUserApi);

@@ -55,6 +55,31 @@ const deal = (_id) => {
   });
 }
 
+const dealqr = (_id) => {
+  let response = {
+    qrcode: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sheltered-plains-73520.herokuapp.com/deals/id/"
+            +_id
+  };
+  return response;
+}
+
+const pros = (proId) => {
+  return ProModel.getPro(proId)
+  .then((pro) => {
+    if (pro === null) {
+      throw new Error('noProsError');
+    }
+    console.log("HERE");
+    let response = {
+      name: pro.name,
+      lat: pro.lat,
+      lng: pro.lng,
+      };
+    console.log(response);
+    return response;
+  });
+}
+
 const createDeal = (deal) => {
   return DealModel.createDeal(deal);
 }
@@ -80,12 +105,34 @@ export default {
   },
 
   getDeal: (req, res) => {
+    // Promise.all([
+    //   deal(req.params.id),
+    //   pros(req.params.id),
+    //   // dealproname(req.params.id),
+    // ])
+    // .then((data) => {
+    //   console.log(data);
+    //   res.render('deal/deal', { deal: data[0], qr: data[1] });
+    //   // console.log(data[0]);
+    //   // console.log(data[1]);
+    //   // console.log(data[2]);
+    //   // res.render('deal/deal', { deal: data[0], qr: data[1], pro: data[2] });
+    //   console.log('OK');
+    // }, (err) => {
+    //   console.log(err);
+    //   res.status(Errors(err).code).send(Errors(err));
+    // });
     deal(req.params.id)
-    .then((data) => {
-      res.render('deal/deal', { deal: data });
-    }, (err) => {
+    .then((data1) => {
+      console.log(data1.proId);
+      pros(data1.proId)
+      .then((data2) => {
+        console.log(data2.name);
+        res.render('deal/deal', { deal: data1, pro: data2 });
+      }, (err) => {
       console.log(err);
       res.status(Errors(err).code).send(Errors(err));
+    });
     });
   },
 
